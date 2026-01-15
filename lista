@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <stdlib.h> //Importando as bibliotecas.
+
+//Criando uma estrutura ou struct para criar os nós, que são fundamentais para ligar os elementos da lista:
+struct No {
+    int valor; //Variável que armazena o valor dentro do nó.
+    struct No *proximo; //Ponteiro que aponta para o próximo nó da lista, garantindo a ligação.
+};
+
+int main() {
+    //Criamos o primeiro item da lista (Nó 1):
+    struct No *no1 = (struct No*) malloc(sizeof(struct No)); //Usamos o malloc para alocar o espaço de memória necessário para armazenar a informação e o sizeof para fazer o cálculo do espaço necessário.
+    no1->valor = 10; //Armazenamos um valor dentro do nó.
+
+    //Criamos o segundo item da lista (Nó 2):
+    struct No *no2 = (struct No*) malloc(sizeof(struct No));
+    no2->valor = 20;
+
+    //Aqui é que o nó 1 aponta para o nó 2:
+    no1->proximo = no2;
+
+    //O nó 2 aponta para o vazio ou null porque é o último elemento da lista:
+    no2->proximo = NULL;
+
+    //Imprimindo a lista:
+    printf("No 1: %d\n", no1->valor);
+    printf("No 2 (vindo do No 1): %d\n", no1->proximo->valor);
+
+    return 0;
+}
+  
