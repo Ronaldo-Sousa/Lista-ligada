@@ -16,15 +16,23 @@ int main() {
     struct No *no2 = (struct No*) malloc(sizeof(struct No));
     no2->valor = 20;
 
+    //Criamos o terceiro item da lista (Nó 3):
+    struct No *no3 = (struct No*) malloc(sizeof(struct No));
+    no3->valor = 30;
+
     //Aqui é que o nó 1 aponta para o nó 2:
     no1->proximo = no2;
 
-    //O nó 2 aponta para o vazio ou null porque é o último elemento da lista:
-    no2->proximo = NULL;
+    //O nó 2 aponta para o nó 3:
+    no2->proximo = no3;
+
+    //O nó 3 aponta para o vazio, porque é o último item da lista:
+    no3->proximo = NULL;
 
     //Imprimindo a lista:
     printf("No 1: %d\n", no1->valor);
-    printf("No 2 (vindo do No 1): %d\n", no1->proximo->valor);
+    printf("No 2: %d\n", no1->proximo->valor);
+    printf("No 3: %d\n", no2->proximo->valor);
 
     return 0;
 }
