@@ -34,6 +34,13 @@ int main() {
     printf("No 2: %d\n", no1->proximo->valor);
     printf("No 3: %d\n", no2->proximo->valor);
 
+    //Agora vamos liberar o espaço na memória para não ocorrer vazamento de memória ou memory leak:
+    free(no1);
+    free(no2);
+    free(no3);
+
+    printf("\nMemória liberada.");
+
     return 0;
 }
   
